@@ -1,11 +1,21 @@
-import './PorfolioApp.css'
+import React, { Component } from "react";
 
-export const PorfolioApp = () => {
-  return (
-    <div>
-      <h1 className='rojo'>Esta es mi aplicación de Porfolio</h1>
-      <h4>Este es mi primer componente!</h4>
-      <p>Hola Mundo desde React!</p>
-    </div>
-  );
-};
+export class PorfolioApp extends Component {
+
+  constructor(){
+    this.state = []
+  }
+  render() {
+    return (
+      <div>
+        <h1>
+          Esto es un componente de clase 
+        </h1>
+        <h4>¿Encontraron las diferencias?</h4>
+        <p>Hola mundo desde un componente de clase</p>
+      </div>
+    );
+  }
+}
+
+export default PorfolioApp;
