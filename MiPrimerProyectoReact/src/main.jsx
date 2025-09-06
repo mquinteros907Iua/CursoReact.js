@@ -1,10 +1,9 @@
 import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import PorfolioApp from './PorfolioApp'
-import './style.css'
+import { VariablesApp } from './VariablesApp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <PorfolioApp />
+    <VariablesApp />
   </React.StrictMode> 
 )
