@@ -1,26 +1,31 @@
-const string = "Curso de React"; //Se ve tal cual el string sin comillas
-const string2 = "Digital House"; //Se ve tal cual el string sin comillas
-const string3 = `Estes es un ${string} que estás cursando en ${string2}`; //Se ve una cadena de texto
-const num = 1.5; //Se ve como un número común y corriente
-const array = ["Html", "Css", "Javascript", "React"]; //Se como texto todo junto, pero está separado en el HTML
-const boolean = false; //No se ve para nada ni aparece en el HTML
-const foo = () => "Este es un string devuelvo por una función"; //sino la ejecuto rompe la app, debo ejecutarla
-const object = { name: "Marcos", job: "Programador" }; //Esto no funciona y rompe la app
-const set = new Set([1, 2, 3, 4]); //Es una excepcion ya que aunque sea un objeto, lo mismo muestra el derivado ya sea string o array
-const date = new Date(); //Esto no funciona y rompe la app
+import "./VariablesApp.css";
 
 export const VariablesApp = () => {
+
+    const style ={
+        color: 'red',
+        fontSize: '20px'
+    }
+
   return (
     <>
-      <h1>{string}</h1>
-      <h4>{string2}</h4>
-      <h6>{string3}</h6>
-      <p>{num}</p>
-      <p>{array}</p>
-      <p>{boolean}</p>
-      <p>{foo()}</p>
-      <p>{JSON.stringify(object)}</p>
-      <p>{JSON.stringify(date)}</p>
+      <h1>Esta clase es de estilos</h1>
+      <h2 id="subtitulo">Vamos a utilizar distintos selectores</h2>
+      <h4 className="red">Este es un titulo rojo</h4>
+      <div>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat et
+          minus inventore in, reiciendis dicta delectus! Voluptatum maiores
+          magni minus perspiciatis? Debitis, est voluptatem. Vitae quo eligendi
+          id laudantium minima.
+        </p>
+      </div>
+      <p style={style}>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis sunt
+        ad quo cumque doloribus aliquid quos dolores inventore ratione fugit
+        deserunt impedit, reiciendis omnis distinctio fuga at aut similique!
+        Non.
+      </p>
     </>
   );
 };

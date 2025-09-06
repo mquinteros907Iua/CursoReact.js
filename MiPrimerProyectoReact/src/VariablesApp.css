@@ -1,0 +1,16 @@
+h1{ //selector de elementos
+    font-family: cursive;
+    font-size: 50px;
+}
+
+#subtitulo{ 
+    background-color: aquamarine;
+} /*selector por id*/
+
+.red{ 
+    color: red;
+} /*selector de clase*/
+
+/*div > p{
+    background-color: blueviolet;
+}*/
