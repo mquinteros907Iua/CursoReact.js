@@ -1,28 +1,19 @@
-import { useState } from "react";
+import { useForms } from "../hooks/useForms";
 
 export const FormsApp = () => {
 
-    const [formState, setFormState] = useState({
+    const initialForm = {
         username: '',
         nickname: '',
         email: '',
         password: ''
-    })
-
-    const { username,nickname, email, password } = formState;
-
-    const onInputChange = ( {target} ) => {
-        const { name, value } = target;
-        console.log({name, value});
-        setFormState({
-            ...formState,
-            [name]: value
-        })
     }
+
+    const { username, nickname, email, password, onInputChange } = useForms(initialForm);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formState);
+        console.log(username, nickname, email, password);
     }
 
     return (
