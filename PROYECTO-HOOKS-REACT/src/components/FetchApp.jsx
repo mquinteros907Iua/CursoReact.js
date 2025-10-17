@@ -1,8 +1,25 @@
+import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 
 export const FetchApp = () => {
   const url = "https://jsonplaceholder.typicode.com/users";
-  const { data, isLoading, error } = useFetch(url);
+  //const url = "https://jsonplaceholder.typicode.com/users/1"; //Url para PUT y DELETE
+
+  const { data, isLoading, error, fetchData } = useFetch();
+
+  /*const body = {
+    title: "foo",
+    body: "bar",
+    userId: 1,
+  };*/
+
+  useEffect(() => {
+
+    fetchData(url, 'GET');
+    //fetchData(url, 'POST', body)
+    //fetchData(url, "PUT", body);
+    //fetchData(url, "DELETE");
+  }, [fetchData]);
 
   return (
     <>

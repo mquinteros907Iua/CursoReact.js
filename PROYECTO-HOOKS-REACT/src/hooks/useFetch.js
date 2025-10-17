@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-export const useFetch = (url) => {
+export const useFetch = () => {
 
     const [state, setState] = useState({
         data: null,
@@ -10,33 +10,40 @@ export const useFetch = (url) => {
 
     const { data, isLoading, error } = state
 
-    useEffect(() => {
-        const getFetch = async () => {
-            if (!url) return
-            try {
-                const res = await fetch(url)
-                const data = await res.json()
-                console.log(data)
-                setState({
-                    data,
-                    isLoading: false,
-                    error: null
-                })
-            } catch (error) {
-                setState({
-                    data: null,
-                    error: error,
-                    isLoading: false
-                })
-            }
-        }
+    const fetchData = async (url, method, bodyData = null) => {
+        if (!url) return
+        try {
 
-        getFetch()
-    }, [url])
+            const options = {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+                body: method == 'GET' || method == 'DELETE' ? null : JSON.stringify(bodyData)
+            }
+
+
+            const res = await fetch(url, options)
+            const data = await res.json()
+            console.log(data)
+            setState({
+                data,
+                isLoading: false,
+                error: null
+            })
+        } catch (error) {
+            setState({
+                data: null,
+                error: error,
+                isLoading: false
+            })
+        }
+    }
 
     return {
         data,
         isLoading,
-        error
+        error,
+        fetchData
     }
 }
